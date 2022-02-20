@@ -104,7 +104,9 @@ public class EasterEggs extends JavaPlugin implements Listener {
         try {
             eggService = new EasterEggService(this, language, database);
         } catch (IOException e) {
+            Logger.error("Cant initialize EasterEgg service. Disable plugin");
             e.printStackTrace();
+            getServer().getPluginManager().disablePlugin(this);
         }
         registerListeners();
         registerCommands();

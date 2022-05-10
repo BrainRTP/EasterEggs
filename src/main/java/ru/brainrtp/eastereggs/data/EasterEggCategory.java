@@ -65,10 +65,6 @@ public class EasterEggCategory {
 
     public void addEgg(EasterEgg egg) {
         egg.setCategory(shortCategoryName);
-        // TODO: (19.02 20:32) Perhaps the default message should be set?
-//        ActionMessage messageAction = new ActionMessage();
-//        messageAction.setMessages(List.of("Some message"));
-//        egg.addAction(messageAction);
         eggs.put(egg.getId(), egg);
 
     }
@@ -90,20 +86,6 @@ public class EasterEggCategory {
 
     public void finish(Player player) {
         finishAction.activate(player);
-        // TODO: (19.02 20:33) Finish it (for PAPI)
-        int founded = EasterEggs.getEggService().getPlayerService().getPlayerData(player.getUniqueId()).size();
-        int count = eggs.size();
-
-        // TODO: (1.02 0:24) реализовать
-//        Placeholder ph = new Placeholder();
-//        ph.addData(Placeholder.PLAYER, player.getName());
-//        ph.addData(Placeholder.CATEGORY, name);
-//        ph.addData(Placeholder.FOUNDED_EGG, founded);
-//        ph.addData(Placeholder.EGG_COUNT, count);
-//
-//        for (Action action : finishAction) {
-//            action.activate(player, ph);
-//        }
     }
 
     public void clear() {
@@ -173,17 +155,15 @@ public class EasterEggCategory {
             for (EasterEgg easterEgg : easterEggCategory.getEggs().values()) {
                 if (EggTypes.BLOCK.equals(easterEgg.getType())) {
                     if (easterEgg.getActions() != null) {
-                        // TODO: (15.02 21:25) А хули тут так пусто?)
+                        // TODO: (15.02 21:25) Why it's empty?
                         for (Action action : easterEgg.getActions().getLocalActions()) {
                         }
                     }
                     node.node(easterEgg.getId()).set(TypeToken.get(EggBlock.class), (EggBlock) easterEgg);
                 } else {
-//                    node.node(easterEgg.getId()).set(EggEntity.class, (EggEntity) easterEgg);
                     node.node(easterEgg.getId()).set(TypeToken.get(EggEntity.class), (EggEntity) easterEgg);
                 }
             }
-//            node.node(EFFECTS_NODE).setList(TypeToken.get(FireworkEffect.class), actionFirework.getEffectList());
             node.node(FINISH_ACTION_NODE).set(TypeToken.get(Actions.class), easterEggCategory.getFinishAction());
         }
     }

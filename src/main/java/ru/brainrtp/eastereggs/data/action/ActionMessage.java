@@ -48,21 +48,14 @@ public class ActionMessage implements Action {
         if (player != null) {
             if (messages != null) {
                 for (String str : messages) {
-                    // TODO: 28.11.2021 ЧОт хуита с плейсхолдерами какая-то
-//                String line = HandlersProvider.getPlaceholderHandler().replace(player, str);
-//                player.sendMessage(line);
                     player.sendMessage(str);
                 }
             }
 
             if (actionBar != null) {
-//                String actionBarReplaced = HandlersProvider.getPlaceholderHandler().replace(player, actionbar);
                 String actionBarReplaced = actionBar;
                 player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(Colors.of(actionBarReplaced)));
             }
-
-//            String title = HandlersProvider.getPlaceholderHandler().replace(player, this.title);
-//            String subtitle = HandlersProvider.getPlaceholderHandler().replace(player, this.subtitle);
 
             if (title != null || subtitle != null)
                 player.sendTitle(Colors.of(title), Colors.of(subtitle), this.fadeIn, this.stay, this.fadeOut);
@@ -73,12 +66,10 @@ public class ActionMessage implements Action {
         @Override
         public ActionMessage deserialize(Type type, ConfigurationNode node) throws SerializationException {
             ActionMessage actionMessage = new ActionMessage();
-//            String asv = Arrays.stream(node.path().array()).map(Object::toString).collect(Collectors.joining("."));
 
             if (node.node(MESSAGES_NODE).isNull()) {
                 actionMessage.setMessages(null);
             } else if (node.node(MESSAGES_NODE).isList()) {
-                // TODO: 15.11.2021 Под вопросом т.к должно быть что-то вроде messages.add или .addAll.
                 actionMessage.setMessages(node.node(MESSAGES_NODE).getList(String.class));
             } else {
                 actionMessage.setMessages(List.of(node.node(MESSAGES_NODE).getString()));

@@ -78,7 +78,6 @@ public class Hologram implements IHologram {
     protected static void tryToSendPacket(Player player, PacketContainer packet) {
         try {
             connection.sendServerPacket(player, packet);
-        } catch (IllegalStateException e) {
         } catch (Exception e) {
             Logger.error("Failed to send FakeEntity packet {0}", e);
         }

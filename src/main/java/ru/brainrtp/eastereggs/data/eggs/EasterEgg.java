@@ -45,15 +45,5 @@ public abstract class EasterEgg {
         }
         EasterEggs.getEggService().addEggToPlayer(player, this);
 
-//        int founded = EasterEggs.getEggService().getPlayerService().getPlayerData(player.getUniqueId())
-//                .get(category).getEggs().size();
-//        int count = EasterEggs.getEggService().getCategory(category).get().getEggs().size();
-//
-//        Placeholder ph = new Placeholder();
-//        ph.addData(Placeholder.PLAYER, player.getName());
-//        ph.addData(Placeholder.CATEGORY, category);
-//        ph.addData(Placeholder.FOUNDED_EGG, founded);
-//        ph.addData(Placeholder.EGG_COUNT, count);
-
     }
 }

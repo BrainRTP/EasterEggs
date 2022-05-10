@@ -52,7 +52,6 @@ public class EditSession {
         highlighterMap.put(egg.getId(), Highlighters.create(egg, player));
     }
 
-    // TODO: (19.02 20:37) удалить т.к нигде не вызывается?)
     public void addHologram(EasterEgg egg) {
         Location loc = egg.getLocation().clone();
 
@@ -63,24 +62,18 @@ public class EditSession {
         }
 
         Hologram hologram = Holograms.create(loc);
-//        hologram.setText(String.format(language.getSingleMessage("edit", "hologram"), egg.getId()));
-        // TODO: (13.02 18:44) сделать нормальный формат, а не через replace
         hologram.setText(language.getSingleMessageWithoutPrefix("edit", "hologram").replace("{number}", String.valueOf(egg.getId())));
         hologram.show(player);
 
         holograms.put(egg.getId(), hologram);
     }
 
-    // TODO: (19.02 20:38) изменить название метода т.к он отвечает за другое? Например, removeHighlighter?
+    // TODO: (19.02 20:38) change the name of the method as it is responsible for something else? For example removeHighlighter?
     public void removeHologram(int eggId) {
         highlighterMap.get(eggId).clear(player);
-//        if (holograms.containsKey(eggId)) {
-//            holograms.get(eggId).destroy();
-//            holograms.remove(eggId);
-//        }
     }
 
-    // TODO: (19.02 20:38) А почему нигде не вызывается? Из-за того, что есть #end() чуть выше?
+    // TODO: (19.02 20:38) Why isn't it called anywhere? Is it because there is #end() above?
     public void removeAllHolograms() {
         for (Hologram hologram : holograms.values()) {
             hologram.destroy();

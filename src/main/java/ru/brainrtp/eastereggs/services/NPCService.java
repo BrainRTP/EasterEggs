@@ -48,11 +48,9 @@ public class NPCService {
         addNPC(npc.getEntityId());
 
         try {
-//            config.get().node(npc.getUUID().toString()).set(TypeToken.get(INPC.class), npc);
             // TODO: (12.02 19:0) rofl is that node name == entityId, and the NPCData already has an Integer entityId
             Logger.info("Added a new NPC with id {0}", npc.getEntityId());
             config.get().node(npc.getEntityId()).set(TypeToken.get(NPCData.class), npcData);
-//            config.get().node(npc.getEntityId()).set(npcData);
             config.save();
         } catch (SerializationException e) {
             e.printStackTrace();
@@ -62,7 +60,6 @@ public class NPCService {
     public void deleteNPC(NPCData npcData) {
         npcs.remove(npcData.getEntityId());
         try {
-//            config.get().node(npc.getUUID().toString()).set(null);
             config.get().node(npcData.getEntityId()).set(null);
         } catch (SerializationException e) {
             e.printStackTrace();
@@ -85,25 +82,8 @@ public class NPCService {
         else
             return null;
 
-//        return npcs.get(entityID);
-//        for(INPC npc : npcs.values()){
-//            if(npc.getEntityId() == entityID){
-//                return npc;
-//            }
-//        }
-
-//        return null;
     }
 
-//    public INPC getNPC(String name){
-//        for(INPC npc : npcs.values()){
-//            if(npc.getName().equals(name)){
-//                return npc;
-//            }
-//        }
-//
-//        return null;
-//    }
 
     public Collection<NPC> getAllNPC() {
         return npcPool.getNPCs();
@@ -133,26 +113,5 @@ public class NPCService {
 
         Logger.info("Loaded {0} NPCs", count);
     }
-
-//    public void changeSkin(INPC npc, String target){
-//        new Thread(()->{
-//            String uuid = MojangAPI.getUUID(target);
-//            Skin skin = MojangAPI.getPlayerSkin(uuid);
-//
-//            if(skin != null){
-//                npc.setSkin(skin);
-//                npc.destroy();
-//                npc.spawn();
-//
-//                try{
-//                    config.get().node(npc.getUUID().toString()).set(TypeToken.get(INPC.class), npc);
-//                    config.save();
-//                } catch (SerializationException e){
-//                    e.printStackTrace();
-//                }
-//            }
-//        }).start();
-//    }
-
 
 }

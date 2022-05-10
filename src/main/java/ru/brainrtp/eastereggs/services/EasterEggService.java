@@ -297,7 +297,7 @@ public class EasterEggService {
     public void stopEditCategory(Player player) {
         String category = getEditor().getEditCategory(player.getUniqueId());
         getEditor().endEditSession(player.getUniqueId());
-        // TODO: (13.02 16:6) Переделать на PAPI
+        // TODO: (13.02 16:6) Add PAPI
         player.sendMessage(language.getSingleMessage("edit", "end").replace("{category}", category));
     }
 

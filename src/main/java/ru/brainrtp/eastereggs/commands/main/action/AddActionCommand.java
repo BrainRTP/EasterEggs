@@ -75,8 +75,6 @@ public class AddActionCommand extends Command {
         if (actionType != null) {
             try {
                 Action action = gson.fromJson(jsonData, actionType.getType());
-//                action.se(actionName);
-
 
                 if (!TokensProvider.getActionTokens().containsKey(actionName)) {
                     player.sendMessage(language.getSingleMessage("action", "parse", "error"));

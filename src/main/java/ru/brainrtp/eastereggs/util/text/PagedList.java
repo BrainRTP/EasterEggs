@@ -61,9 +61,6 @@ public class PagedList {
             player.sendMessage("");
             return;
         }
-
-        // TODO: (11.02 16:8) дописать.
-//        player.sendMessage(EasterEggs.getLang().of("egg.list.empty"));
     }
 
     private BaseComponent[] getAsArray(List<BaseComponent> list) {

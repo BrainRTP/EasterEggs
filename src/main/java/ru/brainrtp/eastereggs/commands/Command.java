@@ -130,7 +130,6 @@ public abstract class Command implements TabExecutor {
         for (EasterEggCategory category : categories) {
             if (category.isHidePlayerData()) continue;
 
-//            output="§eНайдено §c%found%§e/§c%count%§e пасхалок (§6%category%§e)"
             long playerCategoryEggCount = playerData.stream()
                     .filter(playerEgg -> category.getShortCategoryName().equals(playerEgg.getCategory()))
                     .count();
@@ -143,39 +142,6 @@ public abstract class Command implements TabExecutor {
             );
 
         }
-//        int i = 0;
-//
-//        for(EasterEggCategory category : categories){
-//            if(category.isHidePlayerData()){
-//                continue;
-//            }
-//
-//            if(playerData != null){
-//                if(playerData.containsKey(category.getName())){
-//                    EasterEggCategory playerCateg = playerData.get(category.getName());
-//                    Placeholder ph = new Placeholder();
-//                    ph.addData(Placeholder.CATEGORY, playerCateg.getName());
-//                    ph.addData(Placeholder.FOUNDED_EGG, playerCateg.getEggs().size());
-//                    ph.addData(Placeholder.EGG_COUNT, category.getEggs().size());
-//
-//                    player.sendMessage(ph.replace(Colors.of(category.getOutput())));
-//                    i++;
-//                    continue;
-//                }
-//            }
-//
-//            Placeholder ph = new Placeholder();
-//            ph.addData(Placeholder.CATEGORY, category.getName());
-//            ph.addData(Placeholder.FOUNDED_EGG, 0);
-//            ph.addData(Placeholder.EGG_COUNT, category.getEggs().size());
-//
-//            player.sendMessage(ph.replace(Colors.of(category.getOutput())));
-//            i++;
-//        }
-
-//        if(i == 0){
-//            player.sendMessage(lang.of("player.stats.empty"));
-//        }
     }
 
 }

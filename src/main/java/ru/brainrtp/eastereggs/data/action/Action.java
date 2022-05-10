@@ -8,6 +8,6 @@ public interface Action {
 
     void activate(Player player);
 
-    // TODO: 26.11.2021 реализовать
+    // TODO: 26.11.2021
 //    void activate(Player player, Placeholder placeholder);
 }

@@ -12,20 +12,6 @@ public class Util {
         Bukkit.getOnlinePlayers().forEach(Util::sendStop);
     }
 
-//    public static void sendHideBehindBlocks(Player pl, int time) {
-//        sendBlockHighlight(pl, BlockHighlight.getHideBehindBlocks(time));
-//    }
-//
-//    public static void sendHideBehindBlocksAlways(Player pl) {
-//        sendHideBehindBlocks(pl, 1000000000);
-//    }
-//
-//    public static void sendHideBehindBlocksAlwaysToAll() {
-//        for (Player pl : Bukkit.getOnlinePlayers()) {
-//            Util.sendHideBehindBlocksAlways(pl);
-//        }
-//    }
-
     public static void sendBlockHighlight(Player pl, BlockHighlight highlight) {
         ByteBuf packet = Unpooled.buffer();
         packet.writeLong(PacketUtil.blockPosToLong(highlight.getX(), highlight.getY(), highlight.getZ()));

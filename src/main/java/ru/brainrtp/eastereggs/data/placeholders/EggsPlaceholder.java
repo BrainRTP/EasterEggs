@@ -15,15 +15,12 @@ public class EggsPlaceholder extends PlaceholderExpansion {
     private final EasterEggService eggService;
 
     public EggsPlaceholder() {
-//        super(plugin, "ee");
-
         eggService = EasterEggs.getEggService();
     }
 
 
     @Override
     public String onRequest(OfflinePlayer player, String identifier) {
-//        System.out.println();
         if (identifier.startsWith("found")) {
             String[] catagoryTitle = identifier.split("_");
             int founded = 0;
@@ -36,9 +33,6 @@ public class EggsPlaceholder extends PlaceholderExpansion {
                             .toList()
                             .size();
                     founded = foundEasterEggs;
-//                    if (map.containsKey(catagoryTitle[1])) {
-//                        founded = map.get(catagoryTitle[1]).getEggs().size();
-//                    }
                 }
             }
 

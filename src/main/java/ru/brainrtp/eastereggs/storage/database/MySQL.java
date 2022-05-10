@@ -27,8 +27,6 @@ public class MySQL implements Database {
     @Getter
     private final MysqlDataSource dataSource;
     private final Plugin plugin;
-    // TODO: (18.02 21:47) Должно быть такое название
-//    private static final String TABLE_NAME = "eastereggs_player_data";
     private static final String TABLE_NAME = "eastereggs";
 
     public MySQL(Configuration configuration, Plugin plugin) {
@@ -80,7 +78,6 @@ public class MySQL implements Database {
 
         try (Connection conn = dataSource.getConnection();
              PreparedStatement stmt = conn.prepareStatement(
-//                     "SELECT category, egg_id FROM " + TABLE_NAME + " WHERE player = ?;"
                      "SELECT * FROM " + TABLE_NAME + " WHERE player_uuid = ?;"
              )) {
             stmt.setString(1, playerUUID.toString());

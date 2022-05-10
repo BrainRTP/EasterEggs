@@ -16,8 +16,6 @@ import java.util.stream.Collectors;
 
 @Data
 public class NPCData {
-    // TODO: (12.02 18:40) Добавить всякие проверки для переменных как в аналогичных сериалайзерах
-
     private String name = "Steve";
     private Integer entityId;
     private final Location location;
@@ -41,8 +39,6 @@ public class NPCData {
 
             if (!node.node(SKIN_NODE).isNull()) {
                 npcData.setSkin(node.node(SKIN_NODE).get(TypeToken.get(Skin.class)));
-//                или даже так:
-//                npcData.setSkin(node.node(SKIN_NODE).get(Skin.class));
             }
             if (!node.node(ENTITY_ID_NODE).isNull()) {
                 paramMustBeAnInteger(node, ENTITY_ID_NODE);

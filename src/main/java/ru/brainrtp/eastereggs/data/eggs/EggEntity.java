@@ -60,7 +60,6 @@ public class EggEntity extends EasterEgg {
 
         @Override
         public void serialize(Type type, @Nullable EggEntity eggEntity, ConfigurationNode node) throws SerializationException {
-            // TODO: (13.02 23:18) Сделать проверки на всякое) 
             node.node(ID_NODE).set(eggEntity.getId());
             node.node(TYPE_NODE).set(eggEntity.getType().toString());
             node.node(LOCATION_NODE).set(TypeToken.get(Location.class), eggEntity.getLocation());
@@ -83,7 +82,6 @@ public class EggEntity extends EasterEgg {
         }
     }
 
-    // TODO: (19.02 20:31) Нужен ли?
     public EntityType getEntityType() {
         return entityType;
     }

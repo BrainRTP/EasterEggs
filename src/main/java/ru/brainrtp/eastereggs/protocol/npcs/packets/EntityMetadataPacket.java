@@ -42,16 +42,9 @@ public class EntityMetadataPacket extends PacketContainer {
 
         WrappedDataWatcher.Serializer chatSerializer = WrappedDataWatcher.Registry.getChatComponentSerializer(true);
         WrappedDataWatcher.Serializer booleanSerializer = WrappedDataWatcher.Registry.get(Boolean.class);
-//        Class<?> chatComponentClass = MinecraftReflection.getChatComponentTextClass();
         Optional<?> opt = Optional
                 .of(WrappedChatComponent
                         .fromChatMessage(Colors.of(name))[0].getHandle());
-//        Object chatComponent = null;
-//        try {
-//            chatComponent = chatComponentClass.getConstructor(String.class).newInstance("asd");
-//        } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
-//            e.printStackTrace();
-//        }
         dataWatcher.setObject(new WrappedDataWatcher.WrappedDataWatcherObject(2, chatSerializer), opt);
         dataWatcher.setObject(new WrappedDataWatcher.WrappedDataWatcherObject(3, booleanSerializer), true);
         return this;
@@ -68,7 +61,4 @@ public class EntityMetadataPacket extends PacketContainer {
         return this;
     }
 
-//    private WrappedChatComponent getChatComponent(String text) {
-//        return WrappedChatComponent.fromJson("{\"text\": \"" + text + "\"}");
-//    }
 }

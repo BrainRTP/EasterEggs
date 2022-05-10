@@ -51,10 +51,9 @@ public class Highlighter implements IHighlighter {
         if (EntityType.ARMOR_STAND.equals(entity.getType())) {
             ArmorStand armorStand = (ArmorStand) entity;
             location = armorStand.getEyeLocation();
-//            location.add(0, armorStand.getHeadPose().getY() - location.getY(), 0);
         }
         hologram = Holograms.create(location);
-        // TODO: (13.02 18:44) сделать нормальный формат, а не через replace
+        // TODO: (13.02 18:44) Get rid of .replace. Do it differently
         hologram.setText(language.getSingleMessageWithoutPrefix("edit", "hologram")
                 .replace("{number}", String.valueOf(eggId)));
         hologram.show(player);

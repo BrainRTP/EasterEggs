@@ -5,7 +5,7 @@ public enum EggTypes {
     BLOCK("BLOCK"),
     ENTITY("ENTITY");
 
-    String type;
+    final String type;
 
     EggTypes(String type) {
         this.type = type;

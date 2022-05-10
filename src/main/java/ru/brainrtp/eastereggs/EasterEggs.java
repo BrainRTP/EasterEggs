@@ -74,18 +74,6 @@ public class EasterEggs extends JavaPlugin implements Listener {
         plugin = this;
         Logger.init(new JULHandler(getLogger()));
         Logger.info("Starting...");
-        // TODO: (19.02 23:12) NPCs temporarily disabled
-//        npcBuilder = new NPCBuilder(this,
-//                NPCPool.builder(this)
-//                        .spawnDistance(60)
-//                        .actionDistance(1)
-//                        .tabListRemoveTicks(20)
-//                        .build());
-//        try {
-//            npcService = new NPCService(this);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
         pluginDataFolder = this.getDataFolder().toPath();
         blockHighlightTimer = new BlockHighlightTimer(this);
 
@@ -151,7 +139,6 @@ public class EasterEggs extends JavaPlugin implements Listener {
 
     private void registerCommands() {
         ru.brainrtp.eastereggs.commands.Command ee = new MainCommand("ee.admin", language)
-//                .addSub("reload", new ReloadCommand(language, timer, npcService))
                 // TODO: (19.02 22:44) Kludge, because params - static)
                 .addSub("clear", new ClearPlayerDataCommand(language, eggService))
                 .addSub("reload", new ReloadCommand(language, mainConfig))
